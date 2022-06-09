@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Restock extends Item {
     private List<Item> restockList = new ArrayList<>();
-    private int counter;
 
 
 
