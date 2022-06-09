@@ -15,17 +15,22 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
+
+
 	public void run() {
+
+
+
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			switch (choice) {
 				case MAIN_MENU_OPTION_DISPLAY_ITEMS:
-					break;
+					break; // Displays Item name, price, quantity, switch 1 --> (Chips, candy, drink, gum), switch 2 --> four choices per
 				case MAIN_MENU_OPTION_PURCHASE:
-					break;
+					break; // Feeds money here as well, Displays (Item location) <- Key, (name, price, quantity) <- value
 				case MAIN_MENU_OPTION_EXIT:
-					System.exit(0);
+					System.exit(0); //Gets change and updates current balance to $0
 			}
 		}
 	}
