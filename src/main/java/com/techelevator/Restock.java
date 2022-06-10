@@ -23,7 +23,7 @@ public class Restock {
                 double price = Double.parseDouble(details[2]);
                 String type = details[3];
 
-                int COUNTER_START = 0;
+                int COUNTER_START = 5;
                 Item item = new Item(location, name, price, type, COUNTER_START);
                 restockList.add(item);
             }
@@ -37,16 +37,6 @@ public class Restock {
         return restockList;
     }
 
-
-
-
-
-
-    public void Restock() {
-        for (Item item : restockList) {
-        item.setCounter(5);
-            }
-    }
 
 
 }
