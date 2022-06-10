@@ -15,10 +15,12 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
+	Restock stock = new Restock();
 
 
 	public void run() {
-
+		stock.Stock();
+		stock.Restock();
 
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);

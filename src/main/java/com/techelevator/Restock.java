@@ -1,41 +1,51 @@
 package com.techelevator;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.io.File;
 
-public class Restock extends Item {
-    private List<Item> restockList = new ArrayList<>();
+public class Restock {
+    private final List<Item> restockList = new ArrayList<>();
+
+    public List<Item> Stock(){
+
+        try{
+            File f = new File("vendingmachine.csv");
+            Scanner scanner = new Scanner(f);
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] details = line.split("\\|");
+                String location = details[0];
+                String name = details[1];
+                double price = Double.parseDouble(details[2]);
+                String type = details[3];
+
+                int COUNTER_START = 0;
+                Item item = new Item(location, name, price, type, COUNTER_START);
+                restockList.add(item);
+            }
 
 
+        } catch (FileNotFoundException e) {
+            System.out.println("That's not a file");
+        }
 
-    public Restock(String name, double price, int counter) {
-        super(name, price, counter);
+
+        return restockList;
     }
 
 
 
-    public List<Item> restockItems(){
-        restockList.add(potatoCrisps);
-        restockList.add(stackers);
-        restockList.add(grainWaves);
-        restockList.add(cloudPopcorn);
-        restockList.add(moonpie);
-        restockList.add(cowtales);
-        restockList.add(wonkaBar);
-        restockList.add(crunchie);
-        restockList.add(cola);
-        restockList.add(drSalt);
-        restockList.add(mountainMelter);
-        restockList.add(heavy);
-        restockList.add(uChews);
-        restockList.add(littleLeagueChew);
-        restockList.add(chiclets);
-        restockList.add(triplemint);
 
+
+
+    public void Restock() {
         for (Item item : restockList) {
-            item.setCounter(5);
-        }
-        return restockList;
+        item.setCounter(5);
+            }
     }
 
 
