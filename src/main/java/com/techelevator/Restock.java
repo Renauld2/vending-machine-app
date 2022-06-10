@@ -38,14 +38,22 @@ public class Restock {
 
     public void PrintList(){
         for (Item item : restockList) {
-            System.out.println(item.getLocation() + ": " + item.getName() + ": " + item.getPrice() + ": " + item.getCounter());
+            System.out.println(item.getLocation() + ": " + item.getName() + ": $" + item.getPrice() + " " + item.getCounter());
+            if (item.getCounter() == 0){
+                System.out.print("OUT OF STOCK");
+            }
         }
     }
 
-//    @Override
-//    public String toString(){
-//
-//    }
+    public void GiveItem(String itemLocation){
+        for (Item item :restockList){
+            if (item.getLocation().equals(itemLocation)){
+                int itemCount = item.getCounter();
+                itemCount--;
+                item.setCounter(itemCount);
+            }
+        }
+    }
 
 
 }
