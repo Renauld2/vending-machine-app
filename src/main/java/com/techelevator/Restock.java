@@ -8,8 +8,13 @@ import java.io.File;
 
 public class Restock {
     private final List<Item> restockList = new ArrayList<>();
+    private String name;
+    private String location;
+    private double price;
+    private String type;
+    private int counter;
 
-    public List<Item> Stock(){
+    public void Stock(){
 
         try{
             File f = new File("vendingmachine.csv");
@@ -18,25 +23,29 @@ public class Restock {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] details = line.split("\\|");
-                String location = details[0];
-                String name = details[1];
-                double price = Double.parseDouble(details[2]);
-                String type = details[3];
+                location = details[0];
+                name = details[1];
+                price = Double.parseDouble(details[2]);
+                type = details[3];
 
-                int COUNTER_START = 5;
-                Item item = new Item(location, name, price, type, COUNTER_START);
+                Item item = new Item(location, name, price, type, 5);
                 restockList.add(item);
             }
-
-
         } catch (FileNotFoundException e) {
             System.out.println("That's not a file");
         }
-
-
-        return restockList;
     }
 
+    public void PrintList(){
+        for (Item item : restockList) {
+            System.out.println(item.getLocation() + ": " + item.getName() + ": " + item.getPrice() + ": " + item.getCounter());
+        }
+    }
+
+//    @Override
+//    public String toString(){
+//
+//    }
 
 
 }

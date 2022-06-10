@@ -26,6 +26,8 @@ public class VendingMachineCLI {
 
 			switch (choice) {
 				case MAIN_MENU_OPTION_DISPLAY_ITEMS:
+
+					stock.PrintList();
 					break; // Displays Item name, price, quantity, switch 1 --> (Chips, candy, drink, gum), switch 2 --> four choices per
 				case MAIN_MENU_OPTION_PURCHASE:
 					break; // Feeds money here as well, Displays (Item location) <- Key, (name, price, quantity) <- value

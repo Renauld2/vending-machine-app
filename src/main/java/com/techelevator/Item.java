@@ -16,4 +16,23 @@ public class Item {
         this.counter = counter;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
 }
